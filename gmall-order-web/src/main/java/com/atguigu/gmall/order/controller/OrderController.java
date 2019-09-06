@@ -13,6 +13,11 @@ public class OrderController {
     @Reference
     UserService service;
 
+    /**
+     * 查询用户信息
+     * @param userid
+     * @return
+     */
     @GetMapping("trade")
     public UserInfo trade(@RequestParam("userid") String userid){
 
