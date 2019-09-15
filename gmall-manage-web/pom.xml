@@ -36,9 +36,6 @@
             <scope>compile</scope>
         </dependency>
 
-        <groupId>org.csource</groupId>
-        <artifactId>fastdfs-client-java</artifactId>
-        <version>1.27-SNAPSHOT</version>
 
 
     </dependencies>
