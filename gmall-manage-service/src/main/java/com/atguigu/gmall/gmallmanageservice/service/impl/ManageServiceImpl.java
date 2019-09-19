@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.atguigu.gmall.bean.*;
 import com.atguigu.gmall.gmallmanageservice.mapper.*;
 import com.atguigu.gmall.service.ManageService;
+import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -247,8 +248,12 @@ public class ManageServiceImpl implements ManageService {
     }
 
     public SkuInfo getSkuInfoDB(String skuId) {
+        System.err.println(Thread.currentThread()+"读取数据库！！");
         //1、sku基本信息
         SkuInfo skuInfo = skuInfoMapper.selectByPrimaryKey(skuId);
+        if(skuInfo==null){
+            return null;
+        }
         //2、图片信息
         SkuImage skuImage = new SkuImage();
         skuImage.setSkuId(skuId);
@@ -262,6 +267,12 @@ public class ManageServiceImpl implements ManageService {
 
         List<SkuSaleAttrValue> skuSaleAttrValueList = skuSaleAttrValueMapper.select(skuSaleAttrValue);
         skuInfo.setSkuSaleAttrValueList(skuSaleAttrValueList);
+
+        //平台属性
+        SkuAttrValue skuAttrValue = new SkuAttrValue();
+        skuAttrValue.setSkuId(skuId);
+        List<SkuAttrValue> skuAttrValueList = skuAttrValueMapper.select(skuAttrValue);
+        skuInfo.setSkuAttrValueList(skuAttrValueList);
 
         return skuInfo;
     }
@@ -341,6 +352,14 @@ public class ManageServiceImpl implements ManageService {
         }
         
         return skuValueIdsMap;
+    }
+
+    @Override
+    public List<BaseAttrInfo> getAttrBysList(List attrValueIdList) {
+        //attrValueIdList -->  13,15, 54
+        String valueIds = StringUtils.join(attrValueIdList.toArray(), ",");
+
+        return  baseAttrInfoMapper.getBaseAttrInfoListByValueIds(valueIds);
     }
 
 

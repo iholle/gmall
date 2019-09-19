@@ -9,15 +9,17 @@
         <outputRelativeToContentRoot value="true" />
         <module name="gmall-util-common" />
         <module name="gmall-manage-service" />
+        <module name="gmall-list-web" />
         <module name="gmall-util-service" />
         <module name="gmall-bean" />
         <module name="gmall-user-manager" />
         <module name="gmall-order-web" />
         <module name="gmall-util-web" />
         <module name="fastdfs-client-java" />
-        <module name="gmall-interface" />
+        <module name="gmall-list-service" />
         <module name="gmall-manage-web" />
         <module name="gmall-item-web" />
+        <module name="gmall-interface" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +27,8 @@
       <module name="gmall-bean" target="1.8" />
       <module name="gmall-interface" target="1.8" />
       <module name="gmall-item-web" target="1.8" />
+      <module name="gmall-list-service" target="1.8" />
+      <module name="gmall-list-web" target="1.8" />
       <module name="gmall-manage-service" target="1.8" />
       <module name="gmall-manage-web" target="1.8" />
       <module name="gmall-order-web" target="1.8" />
@@ -38,6 +42,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="gmall-item-web" options="" />
+      <module name="gmall-list-service" options="" />
+      <module name="gmall-list-web" options="" />
       <module name="gmall-manage-service" options="" />
       <module name="gmall-manage-web" options="" />
       <module name="gmall-order-web" options="" />
