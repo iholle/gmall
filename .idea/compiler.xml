@@ -7,19 +7,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gmall-util-common" />
-        <module name="gmall-manage-service" />
-        <module name="gmall-list-web" />
-        <module name="gmall-util-service" />
+        <module name="gmall-item-web" />
         <module name="gmall-bean" />
-        <module name="gmall-user-manager" />
-        <module name="gmall-order-web" />
+        <module name="gmall-manage-web" />
         <module name="gmall-util-web" />
+        <module name="gmall-manage-service" />
         <module name="fastdfs-client-java" />
         <module name="gmall-list-service" />
-        <module name="gmall-manage-web" />
-        <module name="gmall-item-web" />
+        <module name="gmall-list-web" />
+        <module name="gmall-order-web" />
+        <module name="gmall-util-common" />
+        <module name="gmall-user-manager-service" />
+        <module name="gmall-passport-web" />
         <module name="gmall-interface" />
+        <module name="gmall-util-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -33,7 +34,8 @@
       <module name="gmall-manage-web" target="1.8" />
       <module name="gmall-order-web" target="1.8" />
       <module name="gmall-parent" target="1.8" />
-      <module name="gmall-user-manager" target="1.8" />
+      <module name="gmall-passport-web" target="1.8" />
+      <module name="gmall-user-manager-service" target="1.8" />
       <module name="gmall-util-common" target="1.8" />
       <module name="gmall-util-service" target="1.8" />
       <module name="gmall-util-web" target="1.8" />
@@ -47,7 +49,8 @@
       <module name="gmall-manage-service" options="" />
       <module name="gmall-manage-web" options="" />
       <module name="gmall-order-web" options="" />
-      <module name="gmall-user-manager" options="" />
+      <module name="gmall-passport-web" options="" />
+      <module name="gmall-user-manager-service" options="" />
     </option>
   </component>
 </project>

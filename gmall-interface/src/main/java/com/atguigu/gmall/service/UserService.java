@@ -43,4 +43,18 @@ public interface UserService {
      */
     UserInfo getUserInfoById(String id);
 
+    /**
+     * 用户登录
+     * @param userInfo
+     * @return
+     */
+    UserInfo login(UserInfo userInfo);
+
+    /**
+     * 认证、校验
+     * @param userId
+     * @return
+     */
+    Boolean verify(String userId);
+
 }

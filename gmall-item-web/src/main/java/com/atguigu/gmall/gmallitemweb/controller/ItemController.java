@@ -6,6 +6,7 @@ import com.atguigu.gmall.bean.SkuInfo;
 import com.atguigu.gmall.bean.SpuSaleAttr;
 import com.atguigu.gmall.service.ListService;
 import com.atguigu.gmall.service.ManageService;
+import com.atguigu.gmall.config.LoginRequire;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ public class ItemController {
     ListService listService;
 
     @GetMapping("{skuId}.html")
+    @LoginRequire
     public String item(@PathVariable("skuId") String skuId, HttpServletRequest request){
         SkuInfo skuInfo = manageService.getSkuInfo(skuId);
         List<SpuSaleAttr> spuSaleAttrList = manageService.getSpuSaleAttrListCheckSku(skuId, skuInfo.getSpuId());
@@ -33,6 +35,7 @@ public class ItemController {
         String valuesSkuJson  = JSON.toJSONString(skuValueIdsMap);
         request.setAttribute("valuesSkuJson",valuesSkuJson);
         listService.incrHotScore(skuId);
+        request.getAttribute("userId");
         return "item";
     }
 }
