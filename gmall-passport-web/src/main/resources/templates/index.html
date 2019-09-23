@@ -86,24 +86,24 @@
 			var err_img2=document.getElementsByClassName('err_img2')[0];
 		 
 			btn2.onclick=function(){
-				if(user.value == '' || pass.value ==''){
-					err.style.display='block';
-					user.style.border='1px solid red';
-					pass.style.border='1px solid red';
-					 
-					err_img1.src='img/img11.png';
-					err_img2.src='img/img22.png';
-				}else{
-				    console.log("123123");
+                if(user.value == '' || pass.value ==''){
+                    err.style.display='block';
+                    user.style.border='1px solid red';
+                    pass.style.border='1px solid red';
+
+                    err_img1.src='img/img11.png';
+                    err_img2.src='img/img22.png';
+                }else{
+                    console.log("123123");
                     $.post("/login",$("#loginForm").serialize(),function (data) {
                         if(data&&data!='fail'){
                             var originUrl = $("#originUrl").val();
                             console.log("originUrl:"+originUrl);
                             if(originUrl==''){
                                 window.location.href="http://www.gmall.com/"
-								return ;
+                                return ;
                             }
-                              originUrl = decodeURIComponent(originUrl);
+                            originUrl = decodeURIComponent(originUrl);
                             var idx=originUrl.indexOf('?');
 
                             if(idx<0){
@@ -119,10 +119,10 @@
                         }
                     }   );
                 }
-			 return;
+                return;
 
 
-				}
+            }
 			 user.onfocus=function(){
                  
                 user.style.border='1px solid #999';

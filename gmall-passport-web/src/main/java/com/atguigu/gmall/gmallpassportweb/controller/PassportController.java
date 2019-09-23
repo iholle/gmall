@@ -23,7 +23,8 @@ public class PassportController {
     String jwtKey="atguigu";//定义秘钥
 
     @GetMapping("index")
-    public String index(@RequestParam("originUrl") String originUrl, Model model){
+    public String index(@RequestParam(value="originUrl",required=false) String originUrl, Model model){
+        //String originUrl = request.getParameter("originUrl");
         model.addAttribute("originUrl",originUrl);
         return "index";
     }
