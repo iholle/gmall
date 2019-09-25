@@ -2,7 +2,9 @@ package com.atguigu.gmall.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.fastjson.JSON;
+import com.atguigu.gmall.bean.UserAddress;
 import com.atguigu.gmall.bean.UserInfo;
+import com.atguigu.gmall.mapper.UserAddressInfoMapper;
 import com.atguigu.gmall.mapper.UserInfoMapper;
 import com.atguigu.gmall.service.UserService;
 import com.atguigu.gmall.util.RedisUtil;
@@ -24,6 +26,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserInfoMapper userInfoMapper;
+
+    @Autowired
+    UserAddressInfoMapper userAddressInfoMapper;
 
     @Override
     public List<UserInfo> getUserInfoListAll() {
@@ -95,5 +100,13 @@ public class UserServiceImpl implements UserService {
 
         jedis.close();
         return isLogin;
+    }
+
+    @Override
+    public List<UserAddress> getUserAddressList(String userId) {
+        UserAddress userAddress = new UserAddress();
+        userAddress.setUserId(userId);
+        List<UserAddress> userAddressList = userAddressInfoMapper.select(userAddress);
+        return userAddressList;
     }
 }

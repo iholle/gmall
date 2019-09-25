@@ -6,9 +6,7 @@ import com.atguigu.gmall.config.LoginRequire;
 import com.atguigu.gmall.service.CartService;
 import com.atguigu.gmall.util.CookieUtil;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -63,5 +61,16 @@ public class CartController {
         request.setAttribute("cartList",cartList);//如果不需要合并,在取登录后的购物车
 
         return "cartList";
+    }
+    @PostMapping("checkCart")
+    @LoginRequire(autoRedirect = false)
+    @ResponseBody
+    public void checkCart(@RequestParam("isChecked")String isChecked,@RequestParam("skuId") String skuId,HttpServletRequest request){
+        String userId =(String) request.getAttribute("userId");
+
+        if(userId==null){
+            userId = CookieUtil.getCookieValue(request,"user_tmp_id",false);
+        }
+        cartService.checkCart(userId,skuId,isChecked);
     }
 }

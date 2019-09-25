@@ -11,11 +11,13 @@
         <module name="gmall-cart-service" />
         <module name="gmall-item-web" />
         <module name="gmall-bean" />
+        <module name="gmall-list-web" />
         <module name="gmall-manage-web" />
-        <module name="gmall-util-web" />
+        <module name="gware-manage" />
+        <module name="gmall-order-service" />
         <module name="fastdfs-client-java" />
         <module name="gmall-list-service" />
-        <module name="gmall-list-web" />
+        <module name="gmall-util-web" />
         <module name="gmall-manage-service" />
         <module name="gmall-util-common" />
         <module name="gmall-user-manager-service" />
@@ -36,6 +38,7 @@
       <module name="gmall-list-web" target="1.8" />
       <module name="gmall-manage-service" target="1.8" />
       <module name="gmall-manage-web" target="1.8" />
+      <module name="gmall-order-service" target="1.8" />
       <module name="gmall-order-web" target="1.8" />
       <module name="gmall-parent" target="1.8" />
       <module name="gmall-passport-web" target="1.8" />
@@ -43,6 +46,7 @@
       <module name="gmall-util-common" target="1.8" />
       <module name="gmall-util-service" target="1.8" />
       <module name="gmall-util-web" target="1.8" />
+      <module name="gware-manage" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -54,6 +58,7 @@
       <module name="gmall-list-web" options="" />
       <module name="gmall-manage-service" options="" />
       <module name="gmall-manage-web" options="" />
+      <module name="gmall-order-service" options="" />
       <module name="gmall-order-web" options="" />
       <module name="gmall-passport-web" options="" />
       <module name="gmall-user-manager-service" options="" />
