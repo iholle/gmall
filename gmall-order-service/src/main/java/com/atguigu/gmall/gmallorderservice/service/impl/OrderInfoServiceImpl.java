@@ -3,6 +3,7 @@ package com.atguigu.gmall.gmallorderservice.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.atguigu.gmall.bean.OrderDetail;
 import com.atguigu.gmall.bean.OrderInfo;
+import com.atguigu.gmall.enums.ProcessStatus;
 import com.atguigu.gmall.gmallorderservice.mapper.OrderDetailMapper;
 import com.atguigu.gmall.gmallorderservice.mapper.OrderInfoMapper;
 import com.atguigu.gmall.service.OrderService;
@@ -66,5 +67,29 @@ public class OrderInfoServiceImpl implements OrderService {
             return false;
         }
 
+    }
+
+    @Override
+    public OrderInfo getOrderInfo(String orderId) {
+        //订单信息
+        OrderInfo orderInfo = orderInfoMapper.selectByPrimaryKey(orderId);
+        //订单详情信息
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.setOrderId(orderId);
+        List<OrderDetail> orderDetailList = orderDetailMapper.select(orderDetail);
+        orderInfo.setOrderDetailList(orderDetailList);
+        return orderInfo;
+    }
+
+    @Override
+    public void updateStatus(String orderId, ProcessStatus processStatus,OrderInfo... orderInfos) {
+        OrderInfo orderInfo = new OrderInfo();
+            if(orderInfos!=null && orderInfos.length>0){
+                orderInfo = orderInfos[0];
+            }
+            orderInfo.setProcessStatus(processStatus);
+            orderInfo.setOrderStatus(processStatus.getOrderStatus());
+            orderInfo.setId(orderId);
+            orderInfoMapper.updateByPrimaryKeySelective(orderInfo);
     }
 }

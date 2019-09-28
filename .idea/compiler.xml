@@ -21,6 +21,7 @@
         <module name="gmall-manage-service" />
         <module name="gmall-util-common" />
         <module name="gmall-user-manager-service" />
+        <module name="gmall-payment" />
         <module name="gmall-passport-web" />
         <module name="gmall-cart-web" />
         <module name="gmall-interface" />
@@ -42,6 +43,7 @@
       <module name="gmall-order-web" target="1.8" />
       <module name="gmall-parent" target="1.8" />
       <module name="gmall-passport-web" target="1.8" />
+      <module name="gmall-payment" target="1.8" />
       <module name="gmall-user-manager-service" target="1.8" />
       <module name="gmall-util-common" target="1.8" />
       <module name="gmall-util-service" target="1.8" />
@@ -61,6 +63,7 @@
       <module name="gmall-order-service" options="" />
       <module name="gmall-order-web" options="" />
       <module name="gmall-passport-web" options="" />
+      <module name="gmall-payment" options="" />
       <module name="gmall-user-manager-service" options="" />
     </option>
   </component>
